@@ -1,0 +1,77 @@
+version: '3.8'
+
+networks:
+  web:
+    driver: bridge
+
+services:
+  db:
+    build:
+      context: ./docker/db
+      dockerfile: Dockerfile
+    container_name: "laravel_db"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - web
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:alpine
+    restart: always
+    networks:
+      - web
+
+  # frontend:
+  #   build:
+  #     context: ../organ-donation-web
+  #     dockerfile: Dockerfile
+  #   tty: true
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ../organ-donation-web:/app:cached
+  #   working_dir: /app
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - web
+
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: "laravel_api"
+    restart: always
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: laravel
+      DB_USERNAME: user
+      DB_PASSWORD: password
+    depends_on:
+      - db
+      - redis
+    networks:
+      - web
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "
+      php artisan config:cache &&
+      php artisan migrate:fresh --seed &&
+      php artisan serve --host=0.0.0.0 --port=8000
+      "
+
+volumes:
+  db_data:
