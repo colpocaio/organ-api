@@ -31,13 +31,13 @@ services:
 
   # frontend:
   #   build:
-  #     context: ../organ-donation-web
+  #     context: ../organ-web
   #     dockerfile: Dockerfile
   #   tty: true
   #   ports:
   #     - "3000:3000"
   #   volumes:
-  #     - ../organ-donation-web:/app:cached
+  #     - ../organ-web:/app:cached
   #   working_dir: /app
   #   depends_on:
   #     - api
