@@ -86,7 +86,7 @@ docker/
   <ol>
     <li><strong>Clone o repositório</strong>:
       <pre><code>git clone &lt;url-do-repositorio&gt;
-cd organ-donation-api
+cd organ-api
       </code></pre>
     </li>
     <li><strong>Configure o arquivo .env</strong>:
