@@ -14,14 +14,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-     <h3> Integrantes do grupo:
-  Amanda Lorena de Almeida Correia, 2210324
-  Caio Eduardo de Jesus Araújo Colpo, 2210890
-  João Vitor Resende Soares, 2211255
-  Gennifer Santos Carvalho 2212569
-  Renato Peixoto Akapohi, 2211140
-  </h3>
   <h1>Documentação do Backend - API de Doação de Órgãos</h1>
+
+  <h3> <b>Integrantes do grupo:<b>
+    Amanda Lorena de Almeida Correia, 2210324
+    Caio Eduardo de Jesus Araújo Colpo, 2210890
+    João Vitor Resende Soares, 2211255
+    Gennifer Santos Carvalho 2212569
+    Renato Peixoto Akapohi, 2211140
+  </h3>
   
   <h2>Contextualização</h2>
   <p>
@@ -93,23 +94,26 @@ docker/
   <ol>
     <li><strong>Clone o repositório</strong>:
       <pre><code>git clone &lt;url-do-repositorio&gt;
-cd organ-api
+cd organ-donation-api
       </code></pre>
     </li>
     <li><strong>Configure o arquivo .env</strong>:
       <pre><code>APP_NAME=Laravel
+APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=base64:/dFfGgRrG6InaZo+2y3ifa6fCSvQ5efd8fbcGaQA40o=
+APP_KEY=base64:QqdHGGcmaPPPbA3QIP8qCb8IhtAPhIUF0DtF8q2yre8=
 APP_DEBUG=true
-APP_TIMEZONE=UTC
+APP_TIMEZONE=America/Sao_Paulo
 APP_URL=http://localhost:8000
 
-APP_LOCALE=en
+APP_LOCALE=pt_BR
 APP_FALLBACK_LOCALE=en
 APP_FAKER_LOCALE=en_US
 
 APP_MAINTENANCE_DRIVER=file
-# APP_MAINTENANCE_STORE=database
+
+APP_MAINTENANCE_STORE=database
+
 
 PHP_CLI_SERVER_WORKERS=4
 
@@ -128,7 +132,7 @@ DB_USERNAME=user
 DB_PASSWORD=password
 
 SESSION_DRIVER=redis
-SESSION_LIFETIME=120
+SESSION_LIFETIME=12000000
 SESSION_ENCRYPT=false
 SESSION_PATH=/
 SESSION_DOMAIN=null
