@@ -20,7 +20,6 @@
     Amanda Lorena de Almeida Correia, 2210324
     Caio Eduardo de Jesus Araújo Colpo, 2210890
     João Vitor Resende Soares, 2211255
-    Gennifer Santos Carvalho 2212569
     Renato Peixoto Akapohi, 2211140
   </h3>
   
